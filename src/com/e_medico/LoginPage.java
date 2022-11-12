@@ -126,15 +126,15 @@ public class LoginPage extends JFrame
 			{
 				int b = 0;
 				DatabaseCon db = new DatabaseCon();
-//				b = db.login(textField.getText() , textField_1.getText());
+				b = db.login(textField.getText() , textField_1.getText());
 				
 			if(b==1)
 				{
 					lblNewLabel_2.setVisible(true);
 				}
 			else {
-//					DashBoard d = new DashBoard();
-//					d.setVisible(true);
+					MedicineLists d = new MedicineLists();
+					d.setVisible(true);
 					setVisible(false);
 				}
 				

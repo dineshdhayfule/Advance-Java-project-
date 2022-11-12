@@ -66,7 +66,7 @@ drop table signup
 			Class.forName(driver);
 			con = DriverManager.getConnection(url , user , "root");
 			stmt = con.createStatement();
-			sql = "select * from registration where PHONENO = ? ";
+			sql = "select * from signup where EMAIL = ? ";
 			stm = con.prepareStatement(sql);
 			stm.setString(1, id);
 			rs = stm.executeQuery();
@@ -80,7 +80,7 @@ drop table signup
 				do
 				{
 					pass11 = rs.getString(1);
-					name = rs.getString(2);
+					name = rs.getString(1);
 				}while(rs.next());
 			}
 			if(pass11.equals(pass11))
@@ -99,7 +99,6 @@ drop table signup
 		}	
 		return b;
 	}
-
 	
 	
 }
