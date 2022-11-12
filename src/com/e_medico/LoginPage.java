@@ -1,32 +1,34 @@
 package com.e_medico;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.EventQueue; 
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
+
+import com.e_medico.dao.DatabaseCon;
+
+//import VaccineManagemntSystem.databse.data;
 import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.Font;
 import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class LoginPage extends JFrame {
-
+public class LoginPage extends JFrame 
+{
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
-	private JPasswordField passwordField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
+		EventQueue.invokeLater(new Runnable() { 
 			public void run() {
 				try {
 					LoginPage frame = new LoginPage();
@@ -43,53 +45,103 @@ public class LoginPage extends JFrame {
 	 */
 	public LoginPage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(700,590);
+		setBounds(100, 100, 600, 450);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("LOGIN PAGE");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("BankGothic Md BT", lblNewLabel.getFont().getStyle(), 35));
-		lblNewLabel.setBounds(144, 64, 294, 51);
-		contentPane.add(lblNewLabel);
+		JPanel panel = new JPanel();
+		panel.setBounds(23, 10, 537, 378);
+		panel.setBackground(Color.WHITE);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		
+		JLabel lblNewLabel = new JLabel("LOGIN");
+		lblNewLabel.setBackground(Color.BLACK);
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setFont(new Font("Tempus Sans ITC", Font.BOLD, 29));
+		lblNewLabel.setBounds(185, 23, 117, 87);
+		panel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("USER NAME");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_1.setBounds(91, 214, 122, 36);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("PASSWORD");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_2.setBounds(91, 319, 122, 36);
-		contentPane.add(lblNewLabel_2);
+		lblNewLabel_1.setBackground(Color.BLACK);
+		lblNewLabel_1.setForeground(Color.BLACK);
+		lblNewLabel_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 22));
+		lblNewLabel_1.setBounds(23, 120, 138, 30);
+		panel.add(lblNewLabel_1);
 		
 		textField = new JTextField();
-		textField.setBounds(283, 223, 155, 27);
-		contentPane.add(textField);
+		textField.setFont(new Font("Tempus Sans ITC", Font.BOLD, 18));
+		textField.setBounds(182, 120, 178, 30);
+		panel.add(textField);
 		textField.setColumns(10);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(283, 328, 155, 27);
-		contentPane.add(passwordField);
+		JLabel lblNewLabel_1_1 = new JLabel("PASSWORD");
+		lblNewLabel_1_1.setForeground(Color.BLACK);
+		lblNewLabel_1_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 22));
+		lblNewLabel_1_1.setBounds(23, 175, 138, 30);
+		panel.add(lblNewLabel_1_1);
 		
-		JButton btnNewButton = new JButton("HOME PAGE");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e)
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Tempus Sans ITC", Font.BOLD, 18));
+		textField_1.setColumns(10);
+		textField_1.setBounds(183, 179, 178, 30);
+		panel.add(textField_1);
+		JLabel lblNewLabel_2 = new JLabel("Wrong User name or wrong password");
+		lblNewLabel_2.setFont(new Font("Tempus Sans ITC", Font.BOLD, 18));
+		lblNewLabel_2.setForeground(Color.RED);
+		lblNewLabel_2.setBounds(99, 234, 313, 44);
+		panel.add(lblNewLabel_2);
+		lblNewLabel_2.setVisible(false);
+		//setUndecorated(true);
+
+		JButton btnNewButton = new JButton("LOGIN");
+		btnNewButton.setBorderPainted(false);
+		btnNewButton.setBackground(Color.GREEN);
+		btnNewButton.setForeground(Color.BLACK);
+		btnNewButton.setFont(new Font("Tempus Sans ITC", Font.PLAIN, 29));
+		btnNewButton.setBounds(62, 295, 148, 55);
+		panel.add(btnNewButton);
+		
+		JButton btnBack = new JButton("HOME");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
 			{
-				HomePage pg = new HomePage();
-				pg.setVisible(true);
+				HomePage h = new HomePage();
+				h.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
-		btnNewButton.setBounds(407, 472, 146, 36);
-		contentPane.add(btnNewButton);
+		btnBack.setForeground(Color.BLACK);
+		btnBack.setFont(new Font("Tempus Sans ITC", Font.PLAIN, 29));
+		btnBack.setBorderPainted(false);
+		btnBack.setBackground(Color.GREEN);
+		btnBack.setBounds(244, 295, 148, 55);
+		panel.add(btnBack);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				int b = 0;
+				DatabaseCon db = new DatabaseCon();
+//				b = db.login(textField.getText() , textField_1.getText());
+				
+			if(b==1)
+				{
+					lblNewLabel_2.setVisible(true);
+				}
+			else {
+//					DashBoard d = new DashBoard();
+//					d.setVisible(true);
+					setVisible(false);
+				}
+				
+			}
+		});
 		
-		JButton btnNewButton_1 = new JButton("SUBMIT");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnNewButton_1.setBounds(111, 472, 112, 36);
-		contentPane.add(btnNewButton_1);
+		
+		
 	}
 }

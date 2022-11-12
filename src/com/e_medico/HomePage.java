@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class HomePage extends JFrame {
 
@@ -46,6 +47,8 @@ public class HomePage extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("LOGIN");
+		btnNewButton.setBorderPainted(false);
+		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -59,6 +62,8 @@ public class HomePage extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("SIGN-UP");
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setBorderPainted(false);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -69,7 +74,7 @@ public class HomePage extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("BankGothic Md BT", lblNewLabel.getFont().getStyle(), 29));
-		btnNewButton_1.setBounds(310, 366, 173, 51);
+		btnNewButton_1.setBounds(310, 366, 194, 51);
 		contentPane.add(btnNewButton_1);
 	}
 }
