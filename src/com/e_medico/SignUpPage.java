@@ -125,8 +125,7 @@ public class SignUpPage extends JFrame {
 				int a =0 , c =0; 
 				if (a==0) {
 					DatabaseCon db = new DatabaseCon();
-					db.insertIntoDB(al);
-					c = db.insertIntoDB(al);
+					c= db.insertIntoDB(al);
 					JOptionPane.showMessageDialog(null, c);
 				     }
 				if(c==1)
