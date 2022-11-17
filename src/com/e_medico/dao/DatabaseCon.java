@@ -66,7 +66,7 @@ drop table signup
 			Class.forName(driver);
 			con = DriverManager.getConnection(url , user , "root");
 			stmt = con.createStatement();
-			sql = "select * from signup where EMAIL = ? ";
+			sql = "select password ,name from signup where EMAIL = ? ";
 			stm = con.prepareStatement(sql);
 			stm.setString(1, id);
 			rs = stm.executeQuery();

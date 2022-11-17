@@ -6,10 +6,23 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
 
 public class MedicineLists extends JFrame {
 
 	private JPanel contentPane;
+	ArrayList ar;
 
 	/**
 	 * Launch the application.
@@ -31,12 +44,278 @@ public class MedicineLists extends JFrame {
 	 * Create the frame.
 	 */
 	public MedicineLists() {
+		 ar=new ArrayList();	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 816, 660);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-	}
+		contentPane.setLayout(null);
+		
+		JLabel Nise = new JLabel("Nise");
+		Nise.setToolTipText("Nise Tablet ");
+		Nise.setIcon(new ImageIcon("C:\\Users\\Prerana Dhayfule\\Downloads\\AJP PR IMG\\Nise Just.jpg"));
+		Nise.setBounds(46, 21, 121, 150);
+		contentPane.add(Nise);
+		
+		JButton btnNewButton = new JButton("Nise");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+					ar.add(Nise.getText());
+				
+			}
+		});
+		btnNewButton.setToolTipText("");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e)
+			{
+				btnNewButton.setText("Add To Card");
+			}
+			@Override
+			public void mouseExited(MouseEvent e)
+			{
+				btnNewButton.setText("Nise");
 
+			}
+			
+		//	@Override
+//			public void mouseClicked(MouseEvent e) {
+//				ar.add(btnNewButton.getText());
+//			}
+		});
+		btnNewButton.setBounds(46, 198, 121, 45);
+		contentPane.add(btnNewButton);
+		
+		JLabel VomitebTablet = new JLabel("Vomiteb_Tablet");
+		VomitebTablet.setToolTipText("Vomiteb Tablet");
+		VomitebTablet.setIcon(new ImageIcon("C:\\Users\\Prerana Dhayfule\\Downloads\\AJP PR IMG\\Vomiteb.png"));
+		VomitebTablet.setBounds(233, 21, 121, 150);
+		contentPane.add(VomitebTablet);
+		
+		JButton btnNewButton_1 = new JButton("Vomiteb Tablet");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ar.add(VomitebTablet.getText());
+
+			}
+		});
+		
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e)
+			{
+				btnNewButton_1.setText("Add To Card");
+			}
+			@Override
+			public void mouseExited(MouseEvent e)
+			{
+				btnNewButton_1.setText("Vomiteb Tablet");
+
+			}
+		});
+		btnNewButton_1.setBounds(233, 198, 121, 45);
+		contentPane.add(btnNewButton_1);
+		
+		JLabel Crocin = new JLabel("Crocin");
+		Crocin.setIcon(new ImageIcon("C:\\Users\\Prerana Dhayfule\\Downloads\\AJP PR IMG\\crosin just.png"));
+		Crocin.setToolTipText("Crocin Tablet");
+		Crocin.setBounds(428, 21, 121, 150);
+		contentPane.add(Crocin);
+		
+		JButton btnNewButton_2 = new JButton("Crocin");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ar.add(Crocin.getText());
+
+			}
+		});
+		btnNewButton_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e)
+			{
+				btnNewButton_2.setText("Add To Card");
+			}
+			@Override
+			public void mouseExited(MouseEvent e)
+			{
+				btnNewButton_2.setText("Crocin Tablet ");
+
+			}
+		});
+		btnNewButton_2.setBounds(428, 198, 121, 45);
+		contentPane.add(btnNewButton_2);
+		
+		
+		
+		
+		
+		JLabel Sinarest = new JLabel("Sinarest");
+		Sinarest.setToolTipText("Sinarest tablet");
+		Sinarest.setIcon(new ImageIcon("C:\\Users\\Prerana Dhayfule\\Downloads\\AJP PR IMG\\sinarest.jpg"));
+		Sinarest.setBounds(596, 21, 121, 150);
+		contentPane.add(Sinarest);
+		
+		JButton btnNewButton_3 = new JButton("Sinarest");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ar.add(Sinarest.getText());
+
+			}
+		});
+		btnNewButton_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnNewButton_3.setText("Add To Cart");	
+			}
+			public void mouseExited(MouseEvent e)
+			{
+				btnNewButton_3.setText("Sinarest");
+
+			}
+		});
+		btnNewButton_3.setBounds(596, 198, 121, 45);
+		contentPane.add(btnNewButton_3);
+		
+		JLabel Cheston_Cold = new JLabel("Cheston_Cold");
+		Cheston_Cold.setIcon(new ImageIcon("C:\\Users\\Prerana Dhayfule\\Downloads\\AJP PR IMG\\Cheston Cold.png"));
+		Cheston_Cold.setToolTipText("Cheston Cold");
+		Cheston_Cold.setBounds(46, 323, 121, 143);
+		contentPane.add(Cheston_Cold);
+		
+		JButton btnNewButton_4 = new JButton("Cheston Cold");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ar.add(Cheston_Cold.getText());
+
+			}
+		});
+		btnNewButton_4.setBounds(46, 496, 121, 45);
+		contentPane.add(btnNewButton_4);
+		
+		JLabel Azithromycin_Tablet = new JLabel("Azithromycin_Tablet");
+		Azithromycin_Tablet.setToolTipText("Azithromycin Tablet");
+		Azithromycin_Tablet.setIcon(new ImageIcon("C:\\Users\\Prerana Dhayfule\\Downloads\\AJP PR IMG\\Azithromycin tablet.png"));
+		Azithromycin_Tablet.setBounds(233, 323, 121, 143);
+		contentPane.add(Azithromycin_Tablet);
+		
+		JButton btnNewButton_5 = new JButton("Azithromycin Tablet");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ar.add(Azithromycin_Tablet.getText());
+
+			}
+		});
+		btnNewButton_5.setBounds(233, 496, 121, 45);
+		contentPane.add(btnNewButton_5);
+		
+		btnNewButton_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnNewButton_5.setText("Add To Cart");	
+			}
+			public void mouseExited(MouseEvent e)
+			{
+				btnNewButton_5.setText("Azithromycin Tablet");
+
+			}
+		});
+		
+		
+		
+		JLabel Cyclopam_Tablet = new JLabel("Cyclopam_Tablet");
+		Cyclopam_Tablet.setToolTipText("Cyclopam Tablet");
+		Cyclopam_Tablet.setIcon(new ImageIcon("C:\\Users\\Prerana Dhayfule\\Downloads\\AJP PR IMG\\cyclopam.png"));
+		Cyclopam_Tablet.setBounds(428, 323, 121, 143);
+		contentPane.add(Cyclopam_Tablet);
+		
+		JButton btnNewButton_6 = new JButton("Cyclopam Tablet");
+		btnNewButton_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ar.add(Cyclopam_Tablet.getText());
+
+			}
+		});
+		btnNewButton_6.setBounds(428, 496, 121, 45);
+		contentPane.add(btnNewButton_6);
+		
+		btnNewButton_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnNewButton_6.setText("Add To Cart");	
+			}
+			public void mouseExited(MouseEvent e)
+			{
+				btnNewButton_6.setText("Cyclopam Tablet");
+
+			}
+		});
+		
+
+		JLabel Tus_Q = new JLabel("Tus_Q");
+		Tus_Q.setIcon(new ImageIcon("C:\\Users\\Prerana Dhayfule\\Downloads\\AJP PR IMG\\Tus-Q.png"));
+		Tus_Q.setToolTipText("Tus -Q Tablet");
+		Tus_Q.setBounds(596, 332, 121, 130);
+		contentPane.add(Tus_Q);
+		
+		JButton btnNewButton_7 = new JButton("Tus-Q");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ar.add(Tus_Q.getText());
+
+			}
+		});
+		btnNewButton_7.setBounds(596, 496, 121, 45);
+		contentPane.add(btnNewButton_7);
+		
+		btnNewButton_7.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnNewButton_7.setText("Add To Cart");	
+			}
+			public void mouseExited(MouseEvent e)
+			{
+				btnNewButton_7.setText("Tus-Q ");
+
+			}
+		});
+		
+		
+		
+		
+		
+		JButton btnNewButton_8 = new JButton("View Cart");
+		btnNewButton_8.setBorderPainted(false);
+		btnNewButton_8.setBackground(Color.WHITE);
+		btnNewButton_8.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
+		btnNewButton_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cart c = new Cart(ar);
+				c.setVisible(true);
+			}
+		});
+		btnNewButton_8.setBounds(622, 573, 139, 40);
+		contentPane.add(btnNewButton_8);
+		
+		btnNewButton_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnNewButton_4.setText("Add To Cart");	
+			}
+			public void mouseExited(MouseEvent e)
+			{
+				btnNewButton_4.setText("Cheston Cold");
+
+			}
+		});
+	}
 }

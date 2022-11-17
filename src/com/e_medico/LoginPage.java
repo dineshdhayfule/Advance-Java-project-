@@ -8,7 +8,6 @@ import javax.swing.border.EmptyBorder;
 
 import com.e_medico.dao.DatabaseCon;
 
-//import VaccineManagemntSystem.databse.data;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -124,19 +123,27 @@ public class LoginPage extends JFrame
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				int b = 0;
-				DatabaseCon db = new DatabaseCon();
-				b = db.login(textField.getText() , textField_1.getText());
-				
-			if(b==1)
+				try
 				{
-					lblNewLabel_2.setVisible(true);
+					int b = 0;
+					DatabaseCon db = new DatabaseCon();
+					b = db.login(textField.getText() , textField_1.getText());
+					
+				if(b==1)
+					{
+						lblNewLabel_2.setVisible(true);
+					}
+				else  {
+						MedicineLists d = new MedicineLists();
+						d.setVisible(true);
+						setVisible(false);
+					}
 				}
-			else {
-					MedicineLists d = new MedicineLists();
-					d.setVisible(true);
-					setVisible(false);
+				catch(Exception ex)
+				{
+					ex.printStackTrace();
 				}
+				
 				
 			}
 		});

@@ -9,7 +9,6 @@ import javax.swing.border.EmptyBorder;
 
 import com.e_medico.dao.DatabaseCon;
 
-//import VaccineManagemntSystem.LoginPage;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,8 +23,11 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 @SuppressWarnings("serial")
 public class SignUpPage extends JFrame {
@@ -117,12 +119,53 @@ public class SignUpPage extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
+				int c = 0;
+				boolean b;
+				//1First Name
+				b = Pattern.compile("([a-zA-Z]{3,30}\s*)+").matcher(textField.getText()).matches();
+				if(b==false) 
+				{
+					textField.setText("enter name proper");
+					c = 1;
+				}
+				else {
+					al.add(textField.getText());
+				}
+				//Email Id
+				b = Pattern.compile("^(.+)@(.+)$").matcher(textField_1.getText()).matches();
+				if(b==false) 
+				{
+					c = 1;
+					textField_1.setText("enter Valid E-mail");
+				}
+				else {
+					al.add(textField_1.getText());
+				}
 				
-				al.add(textField.getText());
-				al.add(textField_1.getText());
-				al.add(textField_2.getText());
-				al.add(textField_3.getText());
-				int a =0 , c =0; 
+				//7Address
+				b = Pattern.compile("").matcher(textField_2.getText()).matches();
+				if(b==true) 
+				{
+					
+					c = 1;
+					textField_2.setText("Enter Valid Address");
+				}
+				else {
+					al.add(textField_2.getText());
+				}
+				
+				//6confirm password
+				if(!textField_3.getText().equals(textField_3.getText()))
+				{
+					textField_3.setText("Enter valid Password");
+					c = 1;
+				}
+				else {
+					al.add(textField_3.getText());
+				}
+			
+			
+				int a =0 ;
 				if (a==0) {
 					DatabaseCon db = new DatabaseCon();
 					c= db.insertIntoDB(al);
@@ -137,7 +180,7 @@ public class SignUpPage extends JFrame {
 		    	 }
 				if(c==1)
 				{
-				LoginPage lp = new LoginPage();
+				      LoginPage lp = new LoginPage();
 						lp.setVisible(true);
 						setVisible(false);
 				}
