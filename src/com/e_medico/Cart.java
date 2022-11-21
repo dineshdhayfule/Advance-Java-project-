@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -14,6 +15,7 @@ public class Cart extends JFrame {
 
 	private JPanel contentPane;
 	JTable table;
+	
 
 	/**
 	 * Launch the application.
@@ -24,6 +26,7 @@ public class Cart extends JFrame {
 				try {
 					ArrayList a = new ArrayList();
 					Cart frame = new Cart(a);
+//					Cart frame = new Cart();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,6 +39,8 @@ public class Cart extends JFrame {
 	 * Create the frame.
 	 */
 	public Cart(ArrayList a) {
+//		JtableData jd = new JtableData();
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 800);
 		contentPane = new JPanel();
@@ -45,18 +50,15 @@ public class Cart extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBounds(24, 21, 617, 72);
-//		String aa = (String) a.get(0);
-		lblNewLabel.setText("  "+a);
-//		lblNewLabel.setText(aa);
-		
 		contentPane.add(lblNewLabel);
-//	    String [][] data  = {{"a.get(0)"},{"100"}};
-//		String  [] col = { "Medicine Name","Price"};
-//	    table = new JTable(data,col);
-//		table.setBounds(117, 198, 404, 267);
-//	    contentPane.add(table);
 		
+		lblNewLabel.setText("  "+a);
+		JScrollPane scrollPane_4 = new JScrollPane();
+		scrollPane_4.setBounds(10, 148, 626, 232);
+		contentPane.add(scrollPane_4);
 		
-		
+		table = new JTable();
+		scrollPane_4.setViewportView(table);
+		//jd.ShowDataInJtable("select * from registration1 ",table);
 	}
 }

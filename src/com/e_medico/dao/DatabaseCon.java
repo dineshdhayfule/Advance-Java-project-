@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 public class DatabaseCon {
 
@@ -16,19 +16,22 @@ public class DatabaseCon {
 	private static String user = "system";
 	private static String pass = "root";
 	private static String driver = "oracle.jdbc.driver.OracleDriver";
+	PreparedStatement stm = null;
+	Connection con = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+
+	String sql;
 	/*create table signup(NAME VARCHAR2(70),EMAIL VARCHAR2(30),ADDRESS VARCHAR2(70),PASSWORD VARCHAR2(10));
 select * from signup
 drop table signup
 */
-	public String fname = null;
-	public String lanme = null;
-	public String phone = null;
-	public String email = null;
-	public String pass1 = null;
-	PreparedStatement stm = null;
-	Connection con = null;
-	Statement stmt = null;
-	String sql;
+//	public String fname = null;
+//	public String lanme = null;
+//	public String phone = null;
+//	public String email = null;
+//	public String pass1 = null;
+	
 
 	public int insertIntoDB (ArrayList a) {
 				
@@ -58,15 +61,15 @@ drop table signup
 	
 	public int login ( String id , String pass )
 	{	
-		ResultSet rs = null;
 		String pass11 = null;
 		String name = null ;
+		String email = null;
 		int b = 0;
 		try {
 			Class.forName(driver);
 			con = DriverManager.getConnection(url , user , "root");
 			stmt = con.createStatement();
-			sql = "select password ,name from signup where EMAIL = ? ";
+			sql = "select * from signup where EMAIL = ? ";
 			stm = con.prepareStatement(sql);
 			stm.setString(1, id);
 			rs = stm.executeQuery();
@@ -79,12 +82,14 @@ drop table signup
 			{
 				do
 				{
-					pass11 = rs.getString(1);
+					pass11 = rs.getString(4);
 					name = rs.getString(1);
+					email=rs.getString(2);
 				}while(rs.next());
 			}
-			if(pass11.equals(pass11))
+			if(pass11.equals(pass) && id.equals(email))
 			{
+				
 				JOptionPane.showMessageDialog(null, "Welcome "+name);
 			}
 			else {
@@ -100,5 +105,28 @@ drop table signup
 		return b;
 	}
 	
+	public int cart (ArrayList a) {
+		
+		int a1 = 0;
+		
+		try {
+
+			Class.forName(driver);
+
+			con = DriverManager.getConnection(url, user, pass);
+
+			stmt = con.createStatement();
+			 sql = "insert into cart values(? , ?  )";
+			 stm = con.prepareStatement(sql);
+			 
+			 stm.setString(1, (String) a.get(0));
+			 stm.setString(2, (String) a.get(1));
+			 a1 = stm.executeUpdate();
+			
+		} catch (Exception e1) {
+
+		}
+		return a1;
+	}
 	
 }

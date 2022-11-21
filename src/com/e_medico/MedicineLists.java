@@ -18,11 +18,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.border.LineBorder;
+
+import com.e_medico.dao.DatabaseCon;
 
 public class MedicineLists extends JFrame {
 
 	private JPanel contentPane;
 	ArrayList ar;
+	DatabaseCon db = new DatabaseCon();
 
 	/**
 	 * Launch the application.
@@ -48,9 +52,49 @@ public class MedicineLists extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 816, 660);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 5, true));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("70  RS.");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(56, 249, 88, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("70  RS.");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_1.setBounds(243, 253, 88, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("70  RS.");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_2.setBounds(438, 249, 88, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("70  RS.");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_3.setBounds(606, 252, 88, 14);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("70  RS.");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_4.setBounds(56, 562, 88, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		JLabel lblNewLabel_5 = new JLabel("70  RS.");
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_5.setBounds(233, 565, 88, 14);
+		contentPane.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("70  RS.");
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_6.setBounds(438, 565, 88, 14);
+		contentPane.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("70  RS.");
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel_7.setBounds(606, 551, 88, 14);
+		contentPane.add(lblNewLabel_7);
 		
 		JLabel Nise = new JLabel("Nise");
 		Nise.setToolTipText("Nise Tablet ");
@@ -59,11 +103,14 @@ public class MedicineLists extends JFrame {
 		contentPane.add(Nise);
 		
 		JButton btnNewButton = new JButton("Nise");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				
 					ar.add(Nise.getText());
+					ar.add(lblNewLabel.getText());
+
 				
 			}
 		});
@@ -96,11 +143,12 @@ public class MedicineLists extends JFrame {
 		contentPane.add(VomitebTablet);
 		
 		JButton btnNewButton_1 = new JButton("Vomiteb Tablet");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ar.add(VomitebTablet.getText());
-
+				ar.add(lblNewLabel_1.getText());
 			}
 		});
 		
@@ -131,7 +179,7 @@ public class MedicineLists extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ar.add(Crocin.getText());
-
+				ar.add(lblNewLabel_2.getText());
 			}
 		});
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
@@ -165,6 +213,7 @@ public class MedicineLists extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ar.add(Sinarest.getText());
+				ar.add(lblNewLabel_3.getText());
 
 			}
 		});
@@ -193,7 +242,7 @@ public class MedicineLists extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ar.add(Cheston_Cold.getText());
-
+				ar.add(lblNewLabel_4.getText());
 			}
 		});
 		btnNewButton_4.setBounds(46, 496, 121, 45);
@@ -210,7 +259,7 @@ public class MedicineLists extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ar.add(Azithromycin_Tablet.getText());
-
+				ar.add(lblNewLabel_5.getText());
 			}
 		});
 		btnNewButton_5.setBounds(233, 496, 121, 45);
@@ -241,7 +290,7 @@ public class MedicineLists extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ar.add(Cyclopam_Tablet.getText());
-
+				ar.add(lblNewLabel_6.getText());
 			}
 		});
 		btnNewButton_6.setBounds(428, 496, 121, 45);
@@ -271,7 +320,7 @@ public class MedicineLists extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ar.add(Tus_Q.getText());
-
+				ar.add(lblNewLabel_7.getText());
 			}
 		});
 		btnNewButton_7.setBounds(596, 496, 121, 45);
@@ -298,9 +347,12 @@ public class MedicineLists extends JFrame {
 		btnNewButton_8.setBackground(Color.WHITE);
 		btnNewButton_8.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 18));
 		btnNewButton_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
 				Cart c = new Cart(ar);
 				c.setVisible(true);
+//				DatabaseCon db = new DatabaseCon();
+//				db.cart(ar);
 			}
 		});
 		btnNewButton_8.setBounds(622, 573, 139, 40);

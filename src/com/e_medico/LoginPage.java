@@ -147,8 +147,5 @@ public class LoginPage extends JFrame
 				
 			}
 		});
-		
-		
-		
 	}
 }
