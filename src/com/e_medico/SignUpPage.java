@@ -1,33 +1,24 @@
 package com.e_medico;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import com.e_medico.dao.DatabaseCon;
-
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import java.awt.TextField;
-
 import javax.swing.JTextField;
-import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
-import javax.swing.JTabbedPane;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @SuppressWarnings("serial")
 public class SignUpPage extends JFrame {
@@ -36,7 +27,7 @@ public class SignUpPage extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private TextField textField_3;
+	private JTextField textField_3;
 
 	private JLabel lblNewLabel_4;
 	ArrayList al = new ArrayList();
@@ -80,6 +71,7 @@ public class SignUpPage extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		textField = new JTextField();
+		
 		textField.setBounds(207, 136, 391, 31);
 		contentPane.add(textField);
 		textField.setColumns(10);
@@ -109,17 +101,17 @@ public class SignUpPage extends JFrame {
 		lblNewLabel_4.setBounds(26, 341, 127, 22);
 		contentPane.add(lblNewLabel_4);
 		
-		textField_3 = new TextField();
+		textField_3 = new JTextField();
 		textField_3.setBounds(207, 341, 391, 37);
 		contentPane.add(textField_3);
-		textField_3.setEchoChar('*');
+		//textField_3.setEchoChar('*');
 		textField_3.setColumns(10);
 		
 		JButton btnNewButton = new JButton("SIGN UP");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				int c = 0;
+				int c = 0; 
 				boolean b;
 				//1First Name
 				b = Pattern.compile("([a-zA-Z]{3,30}\s*)+").matcher(textField.getText()).matches();
@@ -127,6 +119,13 @@ public class SignUpPage extends JFrame {
 				{
 					textField.setText("enter name proper");
 					c = 1;
+					textField.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) 
+						{
+							textField.setText("");
+						}
+					});
 				}
 				else {
 					al.add(textField.getText());
@@ -137,6 +136,13 @@ public class SignUpPage extends JFrame {
 				{
 					c = 1;
 					textField_1.setText("enter Valid E-mail");
+					textField_1.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) 
+						{
+							textField_1.setText("");
+						}
+					});
 				}
 				else {
 					al.add(textField_1.getText());
@@ -146,7 +152,13 @@ public class SignUpPage extends JFrame {
 				b = Pattern.compile("").matcher(textField_2.getText()).matches();
 				if(b==true) 
 				{
-					
+					textField_2.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) 
+						{
+							textField_2.setText("");
+						}
+					});
 					c = 1;
 					textField_2.setText("Enter Valid Address");
 				}
@@ -155,10 +167,17 @@ public class SignUpPage extends JFrame {
 				}
 				
 				//6confirm password
-				if(!textField_3.getText().equals(textField_3.getText()))
+				if(!textField_3.getText().trim().isEmpty())
 				{
 					textField_3.setText("Enter valid Password");
 					c = 1;
+					textField_3.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) 
+						{
+							textField_3.setText("");
+						}
+					});
 				}
 				else {
 					al.add(textField_3.getText());

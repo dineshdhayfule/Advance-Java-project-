@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 
 public class DatabaseCon {
 
@@ -26,11 +25,7 @@ public class DatabaseCon {
 select * from signup
 drop table signup
 */
-//	public String fname = null;
-//	public String lanme = null;
-//	public String phone = null;
-//	public String email = null;
-//	public String pass1 = null;
+
 	
 
 	public int insertIntoDB (ArrayList a) {
@@ -87,7 +82,7 @@ drop table signup
 					email=rs.getString(2);
 				}while(rs.next());
 			}
-			if(pass11.equals(pass) && id.equals(email))
+			if(pass.equals(pass11) && id.equals(email))
 			{
 				
 				JOptionPane.showMessageDialog(null, "Welcome "+name);
@@ -105,28 +100,6 @@ drop table signup
 		return b;
 	}
 	
-	public int cart (ArrayList a) {
-		
-		int a1 = 0;
-		
-		try {
-
-			Class.forName(driver);
-
-			con = DriverManager.getConnection(url, user, pass);
-
-			stmt = con.createStatement();
-			 sql = "insert into cart values(? , ?  )";
-			 stm = con.prepareStatement(sql);
-			 
-			 stm.setString(1, (String) a.get(0));
-			 stm.setString(2, (String) a.get(1));
-			 a1 = stm.executeUpdate();
-			
-		} catch (Exception e1) {
-
-		}
-		return a1;
-	}
+	
 	
 }

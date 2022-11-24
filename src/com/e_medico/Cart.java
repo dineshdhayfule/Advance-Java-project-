@@ -1,20 +1,17 @@
 package com.e_medico;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.JTable;
+import java.awt.GridLayout;
 
 public class Cart extends JFrame {
 
 	private JPanel contentPane;
-	JTable table;
 	
 
 	/**
@@ -25,7 +22,8 @@ public class Cart extends JFrame {
 			public void run() {
 				try {
 					ArrayList a = new ArrayList();
-					Cart frame = new Cart(a);
+					ArrayList a1 = new ArrayList();
+					Cart frame = new Cart(a,a1);
 //					Cart frame = new Cart();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -38,7 +36,7 @@ public class Cart extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Cart(ArrayList a) {
+	public Cart(ArrayList a,ArrayList a1) {
 //		JtableData jd = new JtableData();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,17 +46,22 @@ public class Cart extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(24, 21, 617, 72);
-		contentPane.add(lblNewLabel);
-		
-		lblNewLabel.setText("  "+a);
-		JScrollPane scrollPane_4 = new JScrollPane();
-		scrollPane_4.setBounds(10, 148, 626, 232);
-		contentPane.add(scrollPane_4);
-		
-		table = new JTable();
-		scrollPane_4.setViewportView(table);
-		//jd.ShowDataInJtable("select * from registration1 ",table);
+		 JPanel panel = new JPanel();
+		    panel.setBounds(36, 41, 652, 398);
+		    contentPane.add(panel);
+		    panel.setLayout(new GridLayout(8, 8,8,8));
+		    int sum = 0;
+		    for(int i = 0; i<a.size();i++) 
+		    {
+		    	panel.add(new JLabel(""+a.get(i)));
+		    	sum += Integer.parseInt( (String) a1.get(i));
+		    }
+		    
+		    JLabel lblNewLabel = new JLabel(" "+sum);
+		    lblNewLabel.setBounds(498, 489, 45, 13);
+		    contentPane.add(lblNewLabel);
+
 	}
-}
+}	
+	
+	
