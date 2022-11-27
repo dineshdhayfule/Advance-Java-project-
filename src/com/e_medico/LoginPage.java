@@ -83,7 +83,13 @@ public class LoginPage extends JFrame
 							int b = 0;
 							DatabaseCon db = new DatabaseCon();
 							b = db.login(txtUserName.getText() , txtPassword.getText());
-							
+							if(txtUserName.getText().equals("admin") && txtPassword.getText().equals("admin")) 
+							{
+								DashBoard db1 = new DashBoard();
+								db1.setVisible(true);
+								dispose();
+							}
+							else {
 						if(b==2)
 							{
 								lblNewLabel_2.setVisible(true);
@@ -98,6 +104,7 @@ public class LoginPage extends JFrame
 
 //								EmailSending es = new EmailSending();
 //								es.getdata(id);
+							}
 							}
 						}
 						catch(Exception ex)

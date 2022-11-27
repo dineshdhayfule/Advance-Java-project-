@@ -110,7 +110,7 @@ public class MedicineLists extends JFrame {
 					ar.add(Nise.getText());
 					ar2.add(lblNewLabel.getText());
 					ar1.add("90");
-					btnNewButton.setEnabled(false); 
+//					btnNewButton.setEnabled(false); 
 			}
 		});
 		btnNewButton.setToolTipText("");
@@ -131,7 +131,7 @@ public class MedicineLists extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JLabel VomitebTablet = new JLabel("Vomiteb_Tablet");
-		VomitebTablet.setToolTipText("Vomiteb Tablet");
+		VomitebTablet.setToolTipText("helps reduce the vomiting sensation and discomfort.");
 		VomitebTablet.setIcon(new ImageIcon("C:\\Users\\Dell\\Downloads\\AJP PR IMG\\Vomiteb.png"));
 		VomitebTablet.setBounds(233, 21, 121, 150);
 		contentPane.add(VomitebTablet);
@@ -144,7 +144,7 @@ public class MedicineLists extends JFrame {
 				ar.add(VomitebTablet.getText());
 				ar2.add(lblNewLabel_1.getText());
 				ar1.add("62");
-				btnNewButton_1.setEnabled(false); 
+//				btnNewButton_1.setEnabled(false); 
 			}
 		});
 		
@@ -178,7 +178,7 @@ public class MedicineLists extends JFrame {
 				ar.add(Crocin.getText());
 				ar2.add(lblNewLabel_2.getText());
 				ar1.add("50");
-				btnNewButton_2.setEnabled(false); 
+//				btnNewButton_2.setEnabled(false); 
 			}
 		});
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
@@ -211,7 +211,7 @@ public class MedicineLists extends JFrame {
 				ar.add(Sinarest.getText());
 				ar2.add(lblNewLabel_3.getText());
 				ar1.add("55");
-				btnNewButton_3.setEnabled(false); 
+//				btnNewButton_3.setEnabled(false); 
 			}
 		});
 		btnNewButton_3.addMouseListener(new MouseAdapter() {
@@ -242,7 +242,7 @@ public class MedicineLists extends JFrame {
 				ar.add(Cheston_Cold.getText());
 				ar2.add(lblNewLabel_4.getText());
 				ar1.add("38");
-				btnNewButton_4.setEnabled(false); 
+//				btnNewButton_4.setEnabled(false); 
 			}
 		});
 		btnNewButton_4.addMouseListener(new MouseAdapter() {
@@ -273,7 +273,7 @@ public class MedicineLists extends JFrame {
 				ar.add(Azithromycin_Tablet.getText());
 				ar2.add(lblNewLabel_5.getText());
 				ar1.add("40");
-				btnNewButton_5.setEnabled(false); 
+//				btnNewButton_5.setEnabled(false); 
 			}
 		});
 		btnNewButton_5.setBounds(226, 496, 163, 45);
@@ -309,7 +309,7 @@ public class MedicineLists extends JFrame {
 				ar.add(Cyclopam_Tablet.getText());
 				ar2.add(lblNewLabel_6.getText());
 				ar1.add("45");
-				btnNewButton_6.setEnabled(false); 
+//				btnNewButton_6.setEnabled(false); 
 			}
 		});
 		btnNewButton_6.setBounds(433, 496, 139, 45);
@@ -341,7 +341,7 @@ public class MedicineLists extends JFrame {
 				ar.add(Tus_Q.getText());
 				ar2.add(lblNewLabel_7.getText());
 				ar1.add("42");
-				btnNewButton_7.setEnabled(false);
+//				btnNewButton_7.setEnabled(false);
 			}
 		});
 		btnNewButton_7.setBounds(596, 496, 121, 45);

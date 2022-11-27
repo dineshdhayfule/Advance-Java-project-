@@ -203,7 +203,7 @@ public class SignUpPage extends JFrame {
 				if (a==0) {
 					DatabaseCon db = new DatabaseCon();
 					c= db.insertIntoDB(al);
-					JOptionPane.showMessageDialog(null, c);
+//					JOptionPane.showMessageDialog(null, c);
 				     }
 				if(c==1)
 				{
@@ -218,7 +218,7 @@ public class SignUpPage extends JFrame {
 					MedicineLists d = new MedicineLists();
 					d.setVisible(true);
 					setVisible(false);
-						Cart es = new Cart(e1);
+//						Cart es = new Cart(e1);
 //						es.getdata(e1);
 				}
 			}
