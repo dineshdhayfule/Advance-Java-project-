@@ -1,6 +1,6 @@
 package com.e_medico;
 
-import java.awt.EventQueue; 
+import java.awt.EventQueue;  
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -47,11 +47,28 @@ public class MedicineLists extends JFrame {
 		 ar1=new ArrayList ();
 		 ar2=new ArrayList ();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 816, 660);
+		setBounds(100, 100, 816, 680);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0 ,0));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		JButton btnBack = new JButton("Back");
+		btnBack.setToolTipText("Go To Babk");
+		btnBack.setIcon(null);
+		btnBack.setBounds(10, 602, 165, 40);
+		contentPane.add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				HomePage h = new HomePage();
+				h.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnBack.setForeground(Color.BLACK);
+		btnBack.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 30));
+		btnBack.setBorderPainted(false);
+		btnBack.setBackground(Color.WHITE);
 		
 		JLabel lblNewLabel = new JLabel("₹ 90 ");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -371,7 +388,7 @@ public class MedicineLists extends JFrame {
 				c.setVisible(true);
 			}
 		});
-		btnNewButton_8.setBounds(596, 573, 165, 40);
+		btnNewButton_8.setBounds(606, 603, 165, 40);
 		contentPane.add(btnNewButton_8);
 		
 		JLabel lblNewLabel_8 = new JLabel("");

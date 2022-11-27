@@ -1,6 +1,6 @@
 package com.e_medico;
 
-import java.awt.EventQueue;
+import java.awt.EventQueue; 
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,7 +15,8 @@ public class DashBoard extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+			public void run() 
+			{
 				try {
 					DashBoard frame = new DashBoard();
 					frame.setVisible(true);

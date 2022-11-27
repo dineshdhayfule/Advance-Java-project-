@@ -1,6 +1,6 @@
 package com.e_medico;
 
-import javax.mail.*;
+import javax.mail.*; 
 
 
 import javax.mail.internet.InternetAddress;
@@ -17,9 +17,9 @@ public class EmailSending {
 	public void sendEmail(String to )
 	{
 		 to = null;
-//		id= to;
+       // id= to;
 		String s1="dhayfuledinesh@gmail.com";
-//String to = s1;
+        //String to = s1;
 		String message = " "+to;
 		String subject = "Vaccine : Confirmation";
 		

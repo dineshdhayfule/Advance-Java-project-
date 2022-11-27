@@ -1,13 +1,10 @@
 package com.e_medico;
 
-import java.awt.EventQueue;   
-
+import java.awt.EventQueue;    
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import com.e_medico.dao.DatabaseCon;
-
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -18,7 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.ImageIcon;
