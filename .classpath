@@ -7,6 +7,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Prerana Dhayfule/Downloads/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/eclipse-workspace/AJP Project/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/eclipse-workspace/EMEDICO/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/DELL/eclipse-workspace/EMEDICO/javax.mail-1.6.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

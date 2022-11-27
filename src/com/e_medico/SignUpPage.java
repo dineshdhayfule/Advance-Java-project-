@@ -1,7 +1,6 @@
 package com.e_medico;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -9,7 +8,6 @@ import com.e_medico.dao.DatabaseCon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
-import java.awt.TextField;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -19,18 +17,19 @@ import java.util.regex.Pattern;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.border.TitledBorder;
+import javax.swing.ImageIcon;
 
-@SuppressWarnings("serial")
 public class SignUpPage extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txtName;
+	private JTextField txtEmail;
+	private JTextField txtAddress;
 	private JTextField textField_3;
-
-	private JLabel lblNewLabel_4;
 	ArrayList al = new ArrayList();
+	ArrayList em = new ArrayList();
+	private JLabel lblNewLabel_1;
 
 
 	/**
@@ -59,50 +58,90 @@ public class SignUpPage extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		JButton btnBack = new JButton("Back");
+		btnBack.setToolTipText("Go To Babk");
+		btnBack.setIcon(null);
+		btnBack.setBounds(10, 438, 145, 46);
+		contentPane.add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				HomePage h = new HomePage();
+				h.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnBack.setForeground(Color.BLACK);
+		btnBack.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 30));
+		btnBack.setBorderPainted(false);
+		btnBack.setBackground(new Color(30, 144, 255));
 		
 		JLabel lblNewLabel = new JLabel("SIGN- UP ");
 		lblNewLabel.setFont(new Font("Wide Latin", Font.BOLD, 18));
-		lblNewLabel.setBounds(288, 38, 187, 31);
+		lblNewLabel.setBounds(167, 27, 187, 52);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("NAME");
-		lblNewLabel_1.setFont(new Font("Castellar", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_1.setBounds(26, 136, 140, 31);
-		contentPane.add(lblNewLabel_1);
+		txtName = new JTextField();
+		txtName.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+				txtName.setBorder(new TitledBorder(null, "NAME", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				txtName.setText("");
+			}
+		});
+	
+		txtName.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 21));
+		txtName.setText("NAME");
+		txtName.setBounds(10, 124,  475, 46);
+		contentPane.add(txtName);
+		txtName.setColumns(10);
 		
-		textField = new JTextField();
+		txtEmail = new JTextField();
+		txtEmail.setText("E-MAIL");
+		txtEmail.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) 
+			{
+				txtEmail.setBorder(new TitledBorder(null, "E-MAIL", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				txtEmail.setText("");
+			}
+		});
 		
-		textField.setBounds(207, 136, 391, 31);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtEmail.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 21));
 		
-		JLabel lblNewLabel_2 = new JLabel("E-MAIL");
-		lblNewLabel_2.setFont(new Font("Castellar", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_2.setBounds(26, 207, 111, 22);
-		contentPane.add(lblNewLabel_2);
+		txtEmail.setBounds(10, 197, 475, 46);
+		contentPane.add(txtEmail);
+		txtEmail.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(207, 202, 391, 37);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		JLabel lblNewLabel_3 = new JLabel("ADDRESS");
-		lblNewLabel_3.setFont(new Font("Castellar", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_3.setBounds(26, 268, 111, 31);
-		contentPane.add(lblNewLabel_3);
-		
-		textField_2 =new JTextField();
-		textField_2.setBounds(207, 267, 391, 37);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
-		lblNewLabel_4 = new JLabel("PASSWORD");
-		lblNewLabel_4.setFont(new Font("Castellar", Font.BOLD | Font.ITALIC, 18));
-		lblNewLabel_4.setBounds(26, 341, 127, 22);
-		contentPane.add(lblNewLabel_4);
+		txtAddress =new JTextField();
+		txtAddress.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				txtAddress.setBorder(new TitledBorder(null, "ADDRESS", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				txtAddress.setText("");
+
+			}
+		});
+		txtAddress.setText("ADDRESS");
+		txtAddress.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 21));
+		txtAddress.setBounds(10, 274, 475, 46);
+		contentPane.add(txtAddress);
+		txtAddress.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(207, 341, 391, 37);
+		textField_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				textField_3.setText("");
+				textField_3.setBorder(new TitledBorder(null, "PASSWORD", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			}
+		});
+		textField_3.setText("PASSWORD");
+		textField_3.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 21));
+		textField_3.setBounds(10, 352, 475, 46);
 		contentPane.add(textField_3);
 		//textField_3.setEchoChar('*');
 		textField_3.setColumns(10);
@@ -114,70 +153,46 @@ public class SignUpPage extends JFrame {
 				int c = 0; 
 				boolean b;
 				//1First Name
-				b = Pattern.compile("([a-zA-Z]{3,30}\s*)+").matcher(textField.getText()).matches();
+				b = Pattern.compile("([a-zA-Z]{3,30}\s*)+").matcher(txtName.getText()).matches();
 				if(b==false) 
 				{
-					textField.setText("enter name proper");
+					txtName.setText("enter name proper");
 					c = 1;
-					textField.addMouseListener(new MouseAdapter() {
-						@Override
-						public void mouseClicked(MouseEvent e) 
-						{
-							textField.setText("");
-						}
-					});
 				}
 				else {
-					al.add(textField.getText());
+					al.add(txtName.getText());
+//					em.add(txtName.getText());
 				}
 				//Email Id
-				b = Pattern.compile("^(.+)@(.+)$").matcher(textField_1.getText()).matches();
+				b = Pattern.compile("^(.+)@(.+)$").matcher(txtEmail.getText()).matches();
 				if(b==false) 
 				{
 					c = 1;
-					textField_1.setText("enter Valid E-mail");
-					textField_1.addMouseListener(new MouseAdapter() {
-						@Override
-						public void mouseClicked(MouseEvent e) 
-						{
-							textField_1.setText("");
-						}
-					});
+					txtEmail.setText("enter Valid E-mail");
 				}
 				else {
-					al.add(textField_1.getText());
+					al.add(txtEmail.getText());
+					em.add(txtEmail.getText());
 				}
 				
 				//7Address
-				b = Pattern.compile("").matcher(textField_2.getText()).matches();
+				b = Pattern.compile("").matcher(txtAddress.getText()).matches();
 				if(b==true) 
 				{
-					textField_2.addMouseListener(new MouseAdapter() {
-						@Override
-						public void mouseClicked(MouseEvent e) 
-						{
-							textField_2.setText("");
-						}
-					});
+					
 					c = 1;
-					textField_2.setText("Enter Valid Address");
+					txtAddress.setText("Enter Valid Address");
 				}
 				else {
-					al.add(textField_2.getText());
+					al.add(txtAddress.getText());
+//					em.add(txtAddress.getText());
 				}
 				
-				//6confirm password
-				if(!textField_3.getText().trim().isEmpty())
+				// password
+				if(textField_3.getText().equals(textField_3.getText()))
 				{
 					textField_3.setText("Enter valid Password");
 					c = 1;
-					textField_3.addMouseListener(new MouseAdapter() {
-						@Override
-						public void mouseClicked(MouseEvent e) 
-						{
-							textField_3.setText("");
-						}
-					});
 				}
 				else {
 					al.add(textField_3.getText());
@@ -199,16 +214,27 @@ public class SignUpPage extends JFrame {
 		    	 }
 				if(c==1)
 				{
-				      LoginPage lp = new LoginPage();
-						lp.setVisible(true);
-						setVisible(false);
+					String e1 = txtEmail.getText();
+					MedicineLists d = new MedicineLists();
+					d.setVisible(true);
+					setVisible(false);
+						Cart es = new Cart(e1);
+//						es.getdata(e1);
 				}
 			}
-		});
+		});/*
+		
+		*/
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 30));
 		btnNewButton.setBorderPainted(false);
-		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setFont(new Font("Castellar", Font.BOLD | Font.ITALIC, 18));
-		btnNewButton.setBounds(194, 455, 145, 31);
+		btnNewButton.setBackground(new Color(30, 144, 255));
+		btnNewButton.setBounds(209, 438, 162, 46);
 		contentPane.add(btnNewButton);
+		
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Dell\\Downloads\\AJP PR IMG\\sign up .png"));
+		lblNewLabel_1.setLocation(0, 0);
+		lblNewLabel_1.setSize(786, 542);
+		contentPane.add(lblNewLabel_1);
 	}
 }

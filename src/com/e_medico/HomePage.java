@@ -1,5 +1,5 @@
 package com.e_medico;
-import java.awt.EventQueue;
+import java.awt.EventQueue; 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -9,8 +9,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
 
 public class HomePage extends JFrame {
 
@@ -37,19 +37,20 @@ public class HomePage extends JFrame {
 	 */
 	public HomePage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(700,590);
+		setSize(800,608);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("HOME PAGE");
-		lblNewLabel.setFont(new Font("BankGothic Md BT", lblNewLabel.getFont().getStyle(), 29));
-		lblNewLabel.setBounds(157, 97, 262, 29);
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setFont(new Font("BankGothic Md BT", Font.BOLD, 29));
+		lblNewLabel.setBounds(-111, 66, 70, 29);
 		contentPane.add(lblNewLabel); 
 		
 		JButton btnNewButton_1 = new JButton("SIGN-UP");
-		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		btnNewButton_1.setBackground(new Color(0, 191, 255));
 		btnNewButton_1.setBorderPainted(false);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
@@ -60,32 +61,16 @@ public class HomePage extends JFrame {
 						
 			}
 		});
-		btnNewButton_1.setFont(new Font("BankGothic Md BT", lblNewLabel.getFont().getStyle(), 29));
-		btnNewButton_1.setBounds(310, 366, 194, 51);
+		btnNewButton_1.setFont(new Font("BankGothic Md BT", Font.BOLD, 29));
+		btnNewButton_1.setBounds(372, 483, 158, 51);
 		contentPane.add(btnNewButton_1);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(63, 353, 150, 57);
-		contentPane.add(panel);
-		
 		JButton btnNewButton = new JButton("LOGIN");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseEntered(MouseEvent e) 
-			{
-				panel.setBackground(new Color(124, 252, 0));
-
-			}
-			@Override
-			public void mouseExited(MouseEvent e) 
-			{
-				panel.setBackground(new Color(240, 240, 240));
-
-			}
-		});
-		panel.add(btnNewButton);
+		btnNewButton.setBounds(585, 483, 150, 49);
+		contentPane.add(btnNewButton);
+		
 		btnNewButton.setBorderPainted(false);
-		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBackground(new Color(0, 191, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
@@ -95,5 +80,16 @@ public class HomePage extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("BankGothic Md BT", lblNewLabel.getFont().getStyle(), 29));
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Dell\\Downloads\\AJP PR IMG\\WhatsApp_Image_2022-11-23_at_17-removebg-preview.png"));
+		lblNewLabel_2.setBounds(451, 83, 325, 318);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Dell\\Downloads\\AJP PR IMG\\Home Page 1.jpeg"));
+		lblNewLabel_1.setLocation(0, 0);
+		lblNewLabel_1.setSize( 786,571);
+		contentPane.add(lblNewLabel_1);
 	}
 }
