@@ -38,7 +38,7 @@ drop table signup
 
 			con = DriverManager.getConnection(url, user, pass);
 
-			stmt = con.createStatement();
+			 stmt = con.createStatement();
 			 sql = "insert into signup values(? , ? , ? , ? )";
 			 stm = con.prepareStatement(sql);
 			 
