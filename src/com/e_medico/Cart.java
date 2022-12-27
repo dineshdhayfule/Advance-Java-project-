@@ -104,9 +104,12 @@ public class Cart extends JFrame {
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 21));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//    			EmailSending em = new EmailSending();
-//    			em.sendEmail(id1);
+//    			
 				JOptionPane.showMessageDialog(null, "YOUR ORDER HAS BEEN CONFIRMED");
+				 String email=JOptionPane.showInputDialog(null,"Enter E-mail");     
+				 System.out.print(email);
+				 EmailSending em = new EmailSending();
+	    		 em.sendEmail(email);
 				btnNewButton.setEnabled(false);
 
 			}
